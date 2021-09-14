@@ -1,0 +1,10 @@
+{
+    "stylelint.snippet": [
+        "css",
+        "less",
+        "postcss",
+        "scss",
+        "html",
+        "javascript"
+    ]
+}

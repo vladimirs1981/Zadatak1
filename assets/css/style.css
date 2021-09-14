@@ -1,0 +1,150 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	background-color: hsl(185, 75%, 39%);
+	align-items: center;
+	font-family: "Kumbh Sans", sans-serif;
+	background-image: url(/assets/images/bg-pattern-top.svg),
+		url(/assets/images/bg-pattern-bottom.svg);
+	background-position: right 50vw bottom 50vh, left 50vw top 50vh;
+	background-repeat: no-repeat;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: white;
+	width: 30%;
+	height: 60%;
+	border-radius: 1em;
+	overflow: hidden;
+}
+
+.pattern {
+	width: 100%;
+	height: 30%;
+	flex-basis: 40%;
+}
+
+.pattern img {
+	width: 100%;
+	height: 100%;
+}
+
+.user-image {
+	flex-basis: 40%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	position: relative;
+}
+
+.user-image img {
+	position: absolute;
+	top: -60px;
+	border: 5px solid white;
+	border-radius: 50%;
+	width: 30%;
+}
+
+.name-div {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.content {
+	width: 100%;
+	flex-basis: 20%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border-top: 1px solid hsl(0, 8%, 93%);
+	padding: 5px;
+}
+
+.followers,
+.likes,
+.photos {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  letter-spacing: 1px;
+}
+
+.name,
+.stats {
+	font-size: 18px;
+	font-weight: 700;
+	color: hsl(229, 23%, 23%);
+}
+
+.description {
+	font-size: 12px;
+}
+
+.name {
+	padding-top: 84px;
+}
+
+.city {
+	font-size: 14px;
+}
+
+.description,
+.name-div span,
+.city {
+	padding: 5px;
+	font-weight: 400;
+	color: hsl(227, 10%, 46%);
+}
+
+@media only screen and (min-width: 375px) {
+	body {
+		background-position: right 33vw bottom 50vh, left 40vw top 42vh;
+	}
+
+	.container {
+		width: 87%;
+		height: 46%;
+	}
+
+	.pattern {
+		flex-basis: 38%;
+	}
+
+	.user-image img {
+		top: -54px;
+		width: 33%;
+	}
+
+	.content {
+		flex-basis: 24%;
+	}
+
+	.name {
+		padding-top: 75px;
+	}
+
+	.city {
+		padding-top: 8px;
+	}
+
+	.description {
+		font-size: 10px;
+		letter-spacing: 2px;
+		margin-top: 1px;
+	}
+}
