@@ -49,6 +49,7 @@ body .container {
   height: 60%;
   border-radius: 1em;
   overflow: hidden;
+  /*design 375x667*/
 }
 
 @media only screen and (max-width: 1000px) {
@@ -81,7 +82,7 @@ body .container {
 @media only screen and (max-width: 375px) {
   body .container {
     width: 87%;
-    height: 46%;
+    height: 56%;
   }
 }
 

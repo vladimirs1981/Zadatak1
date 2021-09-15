@@ -64,10 +64,11 @@ body {
 			width: 42%;
 			height: 88%;
 		}
-
+		
+		/*design 375x667*/
 		@include screen-max($mobile) {
 			width: 87%;
-			height: 46%;
+			height: 56%;
 		}
 
 		.pattern {
