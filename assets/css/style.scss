@@ -1,13 +1,7 @@
 @import "variables";
 
-@mixin screen-max($max) {
-	@media only screen and (max-width: $max) {
-		@content;
-	}
-}
-
-@mixin mobile-landscape {
-	@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+@mixin screen-min($min) {
+	@media only screen and (min-width: $min) {
 		@content;
 	}
 }
@@ -16,187 +10,134 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-}
 
-body {
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	justify-content: center;
-	background-color: $backgroundColor;
-	align-items: center;
-	font-family: $primaryFont;
-	background-image: url(../images/bg-pattern-top.svg),
-		url(../images/bg-pattern-bottom.svg);
-	background-position: right 50vw bottom 50vh, left 50vw top 50vh;
-	background-repeat: no-repeat;
+	body {
+		height: 100vh;
+		width: 100vw;
+		display: grid;
+		place-items: center;
+		background-color: $backgroundColor;
+		font-family: $primaryFont;
+		background-image: url(../images/bg-pattern-top.svg),
+			url(../images/bg-pattern-bottom.svg);
+		background-position: right 51vw bottom 56vh, left 47vw top 54vh;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
 
-	@include screen-max($mobile) {
-		background-position: right 33vw bottom 50vh, left 40vw top 42vh;
-	}
-
-	.container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		background-color: white;
-		width: 30%;
-		height: 60%;
-		border-radius: 1em;
-		overflow: hidden;
-
-		@include screen-max($desktop) {
-			width: 40%;
-			height: 55%;
-		}
-
-		@include screen-max($laptop) {
-			width: 57%;
-		}
-
-		@include screen-max($tablet) {
-			width: 81%;
-			height: 50%;
-		}
-
-		@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-			width: 42%;
-			height: 88%;
-		}
-		
-		/*design 375x667*/
-		@include screen-max($mobile) {
-			width: 87%;
-			height: 56%;
-		}
-
-		.pattern {
-			width: 100%;
-			height: 30%;
-			flex-basis: 40%;
-
-			@include screen-max($mobile) {
-				flex-basis: 38%;
-			}
-
-			img {
-				width: 100%;
-				height: 100%;
-			}
-		}
-
-		.user-image {
-			flex-basis: 40%;
+		.container {
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 			display: flex;
+			justify-content: center;
+			align-items: center;
 			flex-direction: column;
-			align-items: center;
+			background-color: white;
 			width: 100%;
-			position: relative;
+			max-width: 343px;
+			margin: 0.24px;
+			height: 100%;
+			max-height: 374px;
+			border-radius: 1em;
+			overflow: hidden;
+			text-align: center;
 
-			img {
-				position: absolute;
-				top: -60px;
-				border: 5px solid white;
-				border-radius: 50%;
-				width: 30%;
+			.pattern {
+				width: 100%;
+				height: 25%;
+				flex-basis: 40%;
 
-				@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-					top: -52px;
-				}
-
-				@include screen-max($mobile) {
-					top: -54px;
-					width: 33%;
+				img {
+					width: 100%;
+					height: 100%;
 				}
 			}
 
-			.name-div {
-				width: 100%;
+			.user-image {
+				box-shadow: 0px -1px 1px 0px rgba(50, 50, 50, 0.2);
+				flex-basis: 40%;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				justify-content: center;
+				width: 100%;
+				position: relative;
 
-				.name {
-					font-size: 18px;
-					font-weight: 700;
-					color: $primaryTextColor;
-					padding-top: 84px;
-
-					@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-						padding-top: 60px;
-					}
-
-					@include screen-max($mobile) {
-						padding-top: 75px;
-					}
+				img {
+					box-shadow: 0px -1px 1px 0px rgba(50, 50, 50, 0.3);
+					display: block;
+					position: absolute;
+					top: -52px;
+					border: 5px solid white;
+					border-radius: 50%;
+					width: 100%;
+					max-width: 104px;
+					height: 100%;
+					max-height: 104px;
 				}
 
-				.city {
-					font-size: 14px;
-					padding: 5px;
-					font-weight: 400;
-					color: $secondaryTextColor;
+				.name-div {
+					justify-self: flex-end;
+					text-align: center;
+					margin-top: 60px;
 
-					@include screen-max($mobile) {
-						padding-top: 8px;
+					.name {
+						font-size: 18px;
+						font-weight: 700;
+						color: $primaryTextColor;
+						padding: 0.5rem;
+					}
+
+					.city {
+						font-size: 14px;
+
+						font-weight: 400;
+						color: $secondaryTextColor;
+					}
+
+					span {
+						padding: 5px;
+						font-weight: 400;
+						color: $secondaryTextColor;
 					}
 				}
+			}
 
-				span {
-					padding: 5px;
-					font-weight: 400;
-					color: $secondaryTextColor;
+			.content {
+				width: 100%;
+				flex-basis: 20%;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				border-top: 1px solid hsl(0, 8%, 93%);
+				padding: 21px;
+
+				.followers,
+				.likes,
+				.photos {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					letter-spacing: 1px;
+
+					.stats {
+						font-size: 18px;
+						font-weight: 700;
+						color: $primaryTextColor;
+						letter-spacing: 0.2px;
+					}
+
+					.description {
+						font-size: 10px;
+						padding: 5px;
+						font-weight: 400;
+						color: $secondaryTextColor;
+						letter-spacing: 1.5px;
+					}
 				}
 			}
 		}
 
-		.content {
-			width: 100%;
-			flex-basis: 20%;
-			display: flex;
-			justify-content: space-around;
-			align-items: center;
-			border-top: 1px solid hsl(0, 8%, 93%);
-			padding: 5px;
-
-			@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-				padding: 15px;
-			}
-
-			@include screen-max($mobile) {
-				flex-basis: 24%;
-				padding: 20px;
-			}
-
-			.followers,
-			.likes,
-			.photos {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				letter-spacing: 1px;
-
-				.stats {
-					font-size: 18px;
-					font-weight: 700;
-					color: $primaryTextColor;
-				}
-
-				.description {
-					font-size: 12px;
-					padding: 5px;
-					font-weight: 400;
-					color: $secondaryTextColor;
-
-					@include screen-max($mobile) {
-						font-size: 10px;
-						letter-spacing: 1.5px;
-						margin-top: -2px;
-					}
-				}
-			}
+		@include screen-min($desktop) {
+			background-position: right 49vw bottom 22vh, left 40vw top 42vh;
 		}
 	}
 }
